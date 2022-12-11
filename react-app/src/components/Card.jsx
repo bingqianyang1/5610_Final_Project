@@ -22,12 +22,13 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) {
       setEmail(currentUser.email);
-    } else navigate("/login");
+    } else 
+    navigate("/login");
   });
 
   const addToCollection = async () => {
     try {
-      await axios.post("http://localhost:5000/api/user/addCollection", {
+      await axios.post("http://localhost:5000/api/user/add", {
         email,
         data: movieData,
       });

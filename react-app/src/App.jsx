@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import VideoPlayer from './pages/VideoPlayer';
 import Movies from './pages/Movies';
 import TVs from './pages/TVs';
+import MyCollection from './pages/MyCollection';
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
             <Route exact path='/videoPlayer' element={<VideoPlayer />} />
             <Route exact path='/tvs' element={<TVs />} />
             <Route exact path='/movies' element={<Movies />} />
+            <Route exact path='/myCollection' element={<MyCollection />} />
+            
             
             
   

@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchVideos, getGenres } from "../store";
 import ChooseType from "../components/ChooseType";
 import Grids from "../components/Grids";
+import Error from "../components/Error";
 
 export default function TVs() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,30 +44,27 @@ export default function TVs() {
 
   return (
     <Container>
-      <Navibar isScrolled={isScrolled} />
-      <div className="data">
-        <ChooseType genres={genres} type="tv" />
-        {movies.length ? (
-          <>
-            <Grids movies={movies} />
-          </>
-        ) : (
-          <h1 className="not-available">
-            No TV Shows avaialble for the selected genre. Please select a
-            different genre.
-          </h1>
-        )}
+
+    <div className="navibar">
+        <Navibar isScrolled={isScrolled} />
       </div>
+      <ChooseType genres={genres} type="tv"/>
+      <div className="data">
+      {movies.length ? <Grids movies={movies} /> : <Error />}
+      </div>
+
+
     </Container>
   );
 }
 
+
 const Container = styled.div`
   .data {
-    margin-top: 8rem;
+    margin-top: 2rem;
     .not-available {
       text-align: center;
-      margin-top: 4rem;
+      margin-top: 6rem;
     }
   }
 `;

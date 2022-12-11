@@ -12,7 +12,7 @@ export default function Navibar(isScrolled) {
         { name: "Home", link: "/" },
         { name: "TV Shows", link: "/tvs" },
         { name: "Movies", link: "/movies" },
-        { name: "My Collection", link: "/mycollection" }
+        { name: "My Collection", link: "/myCollection" }
       ];
 
       const navigate = useNavigate();

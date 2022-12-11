@@ -87,11 +87,11 @@ export const getCollection = createAsyncThunk(
 );
 
 export const editCollection = createAsyncThunk(
-    "videos/editCollection",
+    "videos/removeFromCollection",
     async ({ movieId, email }) => {
       const {
         data: { movies },
-      } = await axios.put("http://localhost:5000/api/user/editCollection", {
+      } = await axios.put("http://localhost:5000/api/user/remove", {
         email,
         movieId,
       });
