@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navibar from '../components/Navibar';
 import poster from '../images/poster.jpeg';
 import { FaPlay } from 'react-icons/fa';
@@ -8,8 +8,6 @@ import styled from 'styled-components';
 
 export default function Home() {
   
-  
-
   const navigate = useNavigate();
 
   return (
@@ -25,7 +23,7 @@ export default function Home() {
           
           <div className="buttons flex">
             <button
-              onClick={() => navigate("/videoPlay")}
+              onClick={() => navigate("/videoPlayer")}
               className="flex jutisfy-center align-center"
             >
               <FaPlay />
