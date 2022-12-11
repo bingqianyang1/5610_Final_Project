@@ -9,7 +9,7 @@ const initialState = {
     genres: [],
 };
 
-export const getGenres = createAsyncThunk("videos/types", async () => {
+export const getGenres = createAsyncThunk("videos/genres", async () => {
     const {data : {genres}} = await axios.get(`${TMDB_BASE_URL}/genre/movie/list?api_key=${API_Key}`);
     return genres;
 });
@@ -43,18 +43,20 @@ const getData = async (api, genres, paging = false) => {
       createArrayFromData(results, moviesArray, genres);
     }
     return moviesArray;
+    
 };
 
-export const fetchDataByType = createAsyncThunk(
-    "videos/type",
+export const fetchDataByGenre = createAsyncThunk(
+    "videos/genre",
     async ({ genre, type }, thunkAPI) => {
       const {
-        netflix: { types },
+        videos: { genres },
       } = thunkAPI.getState();
       return getData(
         `${TMDB_BASE_URL}/discover/${type}?api_key=${API_Key}&with_genres=${genre}`,
-        types
+        genres
       );
+  
     }
   );
 
@@ -109,7 +111,7 @@ const VideoSlice = createSlice({
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
         state.movies = action.payload;
     });
-    builder.addCase(fetchDataByType.fulfilled, (state, action) => {
+    builder.addCase(fetchDataByGenre.fulfilled, (state, action) => {
         state.movies = action.payload;
       });
 

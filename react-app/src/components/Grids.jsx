@@ -5,6 +5,8 @@ export default function Grids({ movies }) {
   const getMoviesFromRange = (from, to) => {
     return movies.slice(from, to);
   };
+
+ 
   return (
     <div>
       <Grid data={getMoviesFromRange(0, 10)} title="Christmas Picks" />

@@ -27,7 +27,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
 
   const addToCollection = async () => {
     try {
-      await axios.post("http://localhost:5000/api/user/add", {
+      await axios.post("http://localhost:5000/api/user/addCollection", {
         email,
         data: movieData,
       });
@@ -60,7 +60,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
               autoPlay={true}
               loop
               muted
-              onClick={() => navigate("/player")}
+              onClick={() => navigate("/videoPlayer")}
             />
           </div>
           <div className="info-container flex column">

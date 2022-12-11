@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navibar from '../components/Navibar';
 import poster from '../images/poster.jpeg';
 import { FaPlay } from 'react-icons/fa';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { useFetcher, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchVideos, getGenres } from '../store';
@@ -12,12 +12,12 @@ import { firebaseAuth } from '../utils/firebase-config';
 import Grids from '../components/Grids';
 
 export default function Home() {
-  
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const dispatch =useDispatch();
 
   const movies = useSelector((state) => state.videos.movies);
-  const types = useSelector((state) => state.videos.genres);
+  const genres = useSelector((state) => state.videos.genres);
   const loaded = useSelector((state) => state.videos.loaded);
 
   
@@ -27,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     if (loaded) {
-      dispatch(fetchVideos({ types, type: "all" }));
+      dispatch(fetchVideos({ genres, type: "all" }));
     }
   }, [loaded]);
 
@@ -35,10 +35,14 @@ export default function Home() {
     if (!currentUser) navigate("/login");
   });
   
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
 
   return (
     <Container>
-      <Navibar  />
+      <Navibar isScrolled={isScrolled} />
       <div className="bg">
         <img
           src={poster}
