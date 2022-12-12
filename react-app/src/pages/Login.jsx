@@ -62,7 +62,7 @@ export default function Login() {
               </h4>
             </div>
 
-            <button>Register</button>
+            <button onClick={() => navigate('/register')}>Register</button>
         </div>
       </div>
     </Container>

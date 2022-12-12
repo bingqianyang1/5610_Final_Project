@@ -36,7 +36,7 @@ export default function MyCollection() {
     <Container>
       <Navibar isScrolled={isScrolled} />
       <div className="content flex column">
-        <h1>My Collection</h1>
+        <h1>My Page</h1>
         <div className="grid flex">
           {movies.map((movie, index) => {
             return (

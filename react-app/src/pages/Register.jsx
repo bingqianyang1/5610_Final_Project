@@ -64,7 +64,7 @@ export default function Register() {
               </h4>
             </div>
 
-            <button>Login</button>
+            <button onClick={() => navigate('/login')}>Login</button>
         </div>
       </div>
     </Container>

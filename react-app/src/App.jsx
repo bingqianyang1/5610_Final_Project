@@ -8,6 +8,7 @@ import Movies from './pages/Movies';
 import TVs from './pages/TVs';
 import MyCollection from './pages/MyCollection';
 
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ export default function App() {
             <Route exact path='/tvs' element={<TVs />} />
             <Route exact path='/movies' element={<Movies />} />
             <Route exact path='/myCollection' element={<MyCollection />} />
+            
             
             
             

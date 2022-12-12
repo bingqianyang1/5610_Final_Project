@@ -5,13 +5,15 @@ import { IoPlayCircleSharp } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
 import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
-import { BsCheck } from "react-icons/bs";
+
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { useDispatch } from "react-redux";
 import { editCollection } from "../store";
 import video from "../images/video.mp4";
+import { IoRemove } from "react-icons/io5";
+
 
 export default React.memo(function Card({ index, movieData, isLiked = false }) {
   const navigate = useNavigate();
@@ -68,7 +70,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
             <h3 className="name" onClick={() => navigate("/videoPlayer")}>
               {movieData.name}
             </h3>
-            <div className="icons flex j-between">
+            <div className="icons flex justify-between">
               <div className="controls flex">
                 <IoPlayCircleSharp
                   title="Play"
@@ -77,7 +79,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
                 <RiThumbUpFill title="Like" />
                 <RiThumbDownFill title="Dislike" />
                 {isLiked ? (
-                  <BsCheck
+                  <IoRemove
                     title="Remove from my collcetion"
                     onClick={() =>
                       dispatch(

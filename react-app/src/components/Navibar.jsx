@@ -5,12 +5,13 @@ import styled from 'styled-components';
 import logo from '../images/logo.png';
 import { firebaseAuth } from '../utils/firebase-config';
 import { FaUser, FaSearch } from "react-icons/fa";
+import { BiExit } from 'react-icons/bi';
 
 
 export default function Navibar(isScrolled) {
     const links = [
         { name: "Home", link: "/" },
-        { name: "TV Shows", link: "/tvs" },
+        { name: "TV Series", link: "/tvs" },
         { name: "Movies", link: "/movies" },
         { name: "My Collection", link: "/myCollection" }
       ];
@@ -66,8 +67,11 @@ export default function Navibar(isScrolled) {
               }}
             />
           </div>
-          <button type="text" onClick={() => signOut(firebaseAuth)}>
+
+          
+          <button onClick={() => signOut(firebaseAuth)}>
           <FaUser />
+          <BiExit />
           </button>
         </div>
       </nav>
