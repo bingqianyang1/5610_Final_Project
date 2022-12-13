@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Navibar from "../components/Navibar";
 import { getCollection } from "../store";
 import { useDispatch, useSelector } from "react-redux";
+import Error from "../components/Error";
 
 export default function MyCollection() {
   const movies = useSelector((state) => state.videos.movies);
@@ -37,8 +38,11 @@ export default function MyCollection() {
       <Navibar isScrolled={isScrolled} />
       <div className="content flex column">
         <h1>My Page</h1>
+
+    
         <div className="grid flex">
-          {movies.map((movie, index) => {
+           
+          {movies?.map((movie, index) => {
             return (
               <Card
                 movieData={movie}
@@ -48,6 +52,9 @@ export default function MyCollection() {
               />
             );
           })}
+          
+          
+          
         </div>
       </div>
     </Container>
