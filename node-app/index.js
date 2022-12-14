@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 mongoose
   .connect("mongodb://localhost:27017/5610proj", {
     useNewUrlParser: true,
@@ -18,6 +19,7 @@ mongoose
   .catch((err) => {
     console.log(err.message);
 });
+
 
 /*
 

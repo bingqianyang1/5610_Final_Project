@@ -51,6 +51,7 @@ export default function Navibar(isScrolled) {
             })}
           </ul>
         </div>
+        
         <div className="right flex align-center">
           <div className={`search ${showSearch ? "show-search" : ""}`}>
             <button

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navibar from '../components/Navibar';
 import { firebaseAuth } from '../utils/firebase-config';
@@ -6,9 +5,8 @@ import { getAuth, getIdToken, onAuthStateChanged, updateEmail, sendPasswordReset
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 export default function Profile() {
-
+  const navigate = useNavigate();
 
   const [loginVal, setLoginVal] = useState({
     email: "",
@@ -18,7 +16,6 @@ export default function Profile() {
   const user = auth.currentUser;
 
  
-
 
   const { email, password } = loginVal;
   
@@ -40,34 +37,47 @@ export default function Profile() {
       }
   };
 
+ 
+
 
   return (
-    <div>
+    <Container>
     <Navibar />
     <div className="content">
-        <h1>
+        <h1 className='align-center'>
             My Profile
         </h1>
         
       <div className="body flex column align-center justify-center">
-      <h3>
+      <h2>
             Change your password here.
-        </h3>
+        </h2>
 
+
+        <div className='form'>
+          <div><label>Email</label></div>
+          
+                <input type="email" name = "email" placeholder="Email" 
+                value={user?.email} />
+         
+                 
+          </div>
+          
 
       
-        
-          <div className='form'>
-          
-                <input type="password" name = "password" placeholder="Password" 
+          <div className='form align-center jutsify-between'>
+            <div>
+              <label>Password</label>
+            </div>
+                <input id="password" type="password" name = "password" placeholder="Password" 
                 value={loginVal.password} 
                 onChange={(event) => setLoginVal({...loginVal, [event.target.name]: event.target.value})} />
-         
-      
+                
           <div>
               <button onClick={handleUpdate}>
                 Rest Password
               </button>
+
               
           </div>
 
@@ -75,7 +85,43 @@ export default function Profile() {
       </div>
     </div>
     </div>
-    </div>
+    </Container>
   
   )
 }
+
+
+const Container = styled.div`
+position: relative;
+.content {
+  margin: 2rem;
+    margin-top: 2rem;
+    gap: 2rem;
+  .body {
+    gap: 1.5rem;
+    .form {
+      input {
+        padding: 1rem;
+        font-size: 1.2rem;
+        border: none;
+      }
+      label {
+        
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: orange;
+      cursor: pointer;
+      color: black;
+      margin: 1rem;
+      border-radius: 0.2rem;
+      font-weight: bolder;
+      font-size: 1.1rem;
+    }
+
+  }
+}
+`;
