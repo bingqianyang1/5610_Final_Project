@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navibar from '../components/Navibar';
-import { firebaseAuth } from '../utils/firebase-config';
-import { getAuth, getIdToken, onAuthStateChanged, updateEmail, sendPasswordResetEmail, updatePassword } from 'firebase/auth';
+import { getAuth, updatePassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 

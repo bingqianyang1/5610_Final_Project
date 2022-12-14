@@ -7,7 +7,6 @@ import styled from "styled-components";
 import Navibar from "../components/Navibar";
 import { getCollection } from "../store";
 import { useDispatch, useSelector } from "react-redux";
-import Error from "../components/Error";
 
 export default function MyCollection() {
   const movies = useSelector((state) => state.videos.movies);

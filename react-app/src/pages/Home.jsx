@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Navibar from '../components/Navibar';
 import poster from '../images/poster.jpeg';
 import { FaPlay } from 'react-icons/fa';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,10 +58,7 @@ export default function Home() {
               <FaPlay />
               Play
             </button>
-            <button className="flex jutisfy-center align-center">
-              <AiOutlineInfoCircle />
-              Info
-            </button>
+            
           </div>
         </div>
       </div>

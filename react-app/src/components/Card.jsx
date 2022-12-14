@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { IoPlayCircleSharp } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
-import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
-import { BiChevronDown } from "react-icons/bi";
-
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
@@ -76,8 +73,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
                   title="Play"
                   onClick={() => navigate("/videoPlayer")}
                 />
-                <RiThumbUpFill title="Like" />
-                <RiThumbDownFill title="Dislike" />
+                
                 {isLiked ? (
                   <IoRemove
                     title="Remove from my collcetion"
@@ -91,9 +87,7 @@ export default React.memo(function Card({ index, movieData, isLiked = false }) {
                   <AiOutlinePlus title="Add to my collection" onClick={addToCollection} />
                 )}
               </div>
-              <div className="info">
-                <BiChevronDown title="More Info" />
-              </div>
+              
             </div>
             <div className="genres flex">
               <ul className="flex">

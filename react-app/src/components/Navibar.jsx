@@ -1,10 +1,10 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../images/logo.png';
 import { firebaseAuth } from '../utils/firebase-config';
-import { FaUser, FaSearch } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { BiExit } from 'react-icons/bi';
 
 
@@ -30,8 +30,6 @@ export default function Navibar(isScrolled) {
       navigate('/profile');
     }
 
-    const [showSearch, setShowSearch] = useState(false);
-    const [hover, setHover] = useState(false);
 
 
   return (
@@ -51,31 +49,10 @@ export default function Navibar(isScrolled) {
             })}
           </ul>
         </div>
-        
-        <div className="right flex align-center">
-          <div className={`search ${showSearch ? "show-search" : ""}`}>
-            <button
-              onFocus={() => setShowSearch(true)}
-              onBlur={() => {
-                if (!hover) {
-                  setShowSearch(false);
-                }
-              }}
-            >
-              <FaSearch />
-            </button>
-            <input
-              type="text"
-              placeholder="Search"
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              onBlur={() => {
-                setShowSearch(false);
-                setHover(false);
-              }}
-            />
-          </div>
 
+        
+       
+        <div className="right flex align-center">
           
           <button>
           <FaUser onClick={handleUserClick}/>
@@ -86,7 +63,7 @@ export default function Navibar(isScrolled) {
           <button onClick={() => signOut(firebaseAuth)}>
           <BiExit />
           </button>
-        </div>
+       </div>
       </nav>
         
     </Container>
