@@ -9,11 +9,11 @@ export default function Grids({ movies }) {
  
   return (
     <div>
-      <Grid data={getMoviesFromRange(0, 10)} title="Christmas Picks" />
-      <Grid data={getMoviesFromRange(10, 20)} title="New Releases" />
+      <Grid data={getMoviesFromRange(0, 10)} title="🎄Christmas Picks🎄" />
+      <Grid data={getMoviesFromRange(10, 20)} title="New on Website" />
       <Grid
         data={getMoviesFromRange(20, 30)}
-        title="Independent Cinema"
+        title="Our Recommendations"
       />
       <Grid
         data={getMoviesFromRange(30, 40)}
