@@ -23,6 +23,13 @@ export default function Navibar(isScrolled) {
         };
       });
 
+
+      
+    
+    const handleUserClick = async () => {
+      navigate('/profile');
+    }
+
     const [showSearch, setShowSearch] = useState(false);
     const [hover, setHover] = useState(false);
 
@@ -69,8 +76,13 @@ export default function Navibar(isScrolled) {
           </div>
 
           
+          <button>
+          <FaUser onClick={handleUserClick}/>
+          </button>
+
+
+          
           <button onClick={() => signOut(firebaseAuth)}>
-          <FaUser />
           <BiExit />
           </button>
         </div>

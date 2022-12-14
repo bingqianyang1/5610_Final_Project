@@ -50,7 +50,7 @@ export default function TVs() {
       </div>
       <ChooseType genres={genres} type="tv"/>
       <div className="data">
-      {movies.length ? <Grids movies={movies} /> : <Error />}
+      {movies ? <Grids movies={movies} /> : <Error />}
       </div>
 
 

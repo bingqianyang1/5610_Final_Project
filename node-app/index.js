@@ -7,18 +7,34 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 mongoose
   .connect("mongodb://localhost:27017/5610proj", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("DB Connetion Successfull");
+    console.log("DB Connetion Successful");
   })
   .catch((err) => {
     console.log(err.message);
 });
+
+/*
+
+mongoose
+  .connect(process.env.MONGO_CON, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
+  .then(() => {
+    console.log("DB Connetion Successful");
+  })
+  .catch((err) => {
+    console.log(err.message);
+});
+
+*/
 
 app.use("/api/user", userRoutes);
 

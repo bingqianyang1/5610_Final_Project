@@ -6,14 +6,8 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  /*
-  password: {
-    type: String,
-    required: true
-  },
-  isAdmin: {type: Boolean, deafault: false},
-  */
   likedMovies: Array,
-});
+}
+);
 
 module.exports = mongoose.model("users", userSchema);

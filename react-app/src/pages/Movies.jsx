@@ -20,6 +20,7 @@ export default function Movies() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  
   useEffect(() => {
     dispatch(getGenres());
   }, []);
@@ -29,21 +30,17 @@ export default function Movies() {
       dispatch(fetchVideos({ genres, type: "movie" }));
     }
   }, [loaded]);
-
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    //if (currentUser) navigate("/");
-  });
-
-
   
+  const [user, setUser] = useState(undefined);
 
-  //const [user, setUser] = useState(undefined);
 
+  /*
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    //if (currentUser) setUser(currentUser.uid);
-    //else navigate("/login");
+    if (currentUser) setUser(currentUser.uid);
+    else navigate("/login");
   });
-
+  */
+ 
   
 
   return (
@@ -53,7 +50,7 @@ export default function Movies() {
       </div>
       <ChooseType genres={genres} type="movie"/>
       <div className="data">
-      {movies.length ? <Grids movies={movies} /> : <Error />}
+      {movies ? <Grids movies={movies} /> : <Error />}
       </div>
       
     </Container>

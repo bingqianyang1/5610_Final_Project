@@ -3,7 +3,7 @@ import Navibar from '../components/Navibar';
 import poster from '../images/poster.jpeg';
 import { FaPlay } from 'react-icons/fa';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import { useFetcher, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchVideos, getGenres } from '../store';

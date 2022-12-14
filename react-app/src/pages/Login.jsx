@@ -8,14 +8,14 @@ import { firebaseAuth } from '../utils/firebase-config';
 
 export default function Login() {
   const navigate = useNavigate();
-  const [registerVal, setRegisterVal] = useState({
+  const [loginVal, setLoginVal] = useState({
     email: "",
     password: ""
   });
 
   const handleLogin = async () => {
     try {
-      const { email, password } = registerVal;
+      const { email, password } = loginVal;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (error) {
       console.log(error);
@@ -41,13 +41,13 @@ export default function Login() {
 
             <div className='form'>
                 <input type="email" name = "email" placeholder="Email Address" 
-                value={registerVal.email} 
-                onChange={(event) => setRegisterVal({...registerVal, [event.target.name]: event.target.value})} />
+                value={loginVal.email} 
+                onChange={(event) => setLoginVal({...loginVal, [event.target.name]: event.target.value})} />
             </div>
             <div className='form'>
                 <input type="password" name = "password" placeholder="Password" 
-                value={registerVal.password} 
-                onChange={(event) => setRegisterVal({...registerVal, [event.target.name]: event.target.value})} />
+                value={loginVal.password} 
+                onChange={(event) => setLoginVal({...loginVal, [event.target.name]: event.target.value})} />
             </div>
         
             <div>
